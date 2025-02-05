@@ -9,6 +9,9 @@
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 \usepackage{caption} % Allows the usage of \captionsetup
+\usepackage{enumitem}
+\setlist[itemize,1]{label=\textbullet}
+\setlist[itemize,2]{label=--}
 
 \usepackage[T1]{fontenc}
 \usepackage{cascadia-code}
@@ -18,7 +21,7 @@
 %----------------------------------------------------------------------------------------
 
 \title{Ateliers Créactifs Raspberry Pi}
-\subtitle{Découverte de l'univers Raspberry PI. Utilisation de cette carte électronique et exploration des possibilités.}
+\subtitle{Découverte de l'univers Raspberry Pi. Utilisation de cette carte électronique et exploration des possibilités.}
 
 \author{Jean Bourgies, Ugo Proietti}
 
@@ -215,8 +218,6 @@
 \end{frame}
 
 %------------------------------------------------
-\section{Première utilisation}
-%------------------------------------------------
 
 \begin{frame}{Linux}
     \begin{columns}[c] % 'c' ensures vertical centering for both columns
@@ -238,6 +239,16 @@
     \end{columns}
 \end{frame}
 
+%------------------------------------------------
+
+\begin{frame}{Questions}
+    \begin{center}
+        Questions / Remarques / Réflexions
+    \end{center}
+\end{frame}
+
+%------------------------------------------------
+\section{Première utilisation}
 %------------------------------------------------
 
 \begin{frame}{Bienvenue}
@@ -304,7 +315,7 @@
         \item \texttt{chown [utilisateur] [fichier/dossier]} : change le propriétaire
     \end{itemize}
 
-Recherche
+    Recherche
     \begin{itemize}
         \item \texttt{find [chemin] -name [nom]} : cherche un fichier/dossier par nom
         \item \texttt{grep [mot] [fichier]} : cherche un mot-clé dans un fichier
@@ -321,6 +332,11 @@ Recherche
         \item \texttt{sudo apt update} : mise à jour de la liste des programmes disponibles
         \item \texttt{sudo apt upgrade} : mise à jour des programmes
         \item \texttt{sudo apt install [nom]} : installe un programme
+    \end{itemize}
+
+    Gestion de la carte RPI
+    \begin{itemize}
+        \item \texttt{sudo raspi-config} : ouverture de l'outil de configuration
     \end{itemize}
 
 \end{frame}
