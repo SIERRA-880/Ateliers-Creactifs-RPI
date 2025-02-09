@@ -1,0 +1,26 @@
+\frametitle{Carousel d'images}
+    \begin{columns}[c] % 'c' ensures vertical centering for both columns
+
+        \column{.4\textwidth} % Left column
+        \begin{itemize}
+            \item \texttt{sudo apt install feh}
+            \item \texttt{touch carousel.sh}
+            \item \texttt{nano carousel.sh}
+            \item \texttt{chmod +x carousel.sh}
+            \item \texttt{./carousel.sh}
+        \end{itemize}
+
+        \column{.6\textwidth} % Right column
+        \begin{lstlisting}[language=Bash, caption=carousel.sh]
+#!/bin/bash
+
+images=($(shuf -e *.jpg))
+
+for image in "${images[@]}"; do
+    feh --fullscreen --zoom fill "$image" &
+    sleep 3
+    killall feh
+done
+        \end{lstlisting}
+
+    \end{columns}
