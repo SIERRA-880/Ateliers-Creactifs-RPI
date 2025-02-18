@@ -14,7 +14,7 @@
         \begin{lstlisting}[language=Bash, caption=carousel.sh]
 #!/bin/bash
 
-images=($(shuf -e *.jpg))
+images=($(shuf -e *.jpeg))
 
 for image in "${images[@]}"; do
     feh --fullscreen --zoom fill "$image" &

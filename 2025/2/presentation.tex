@@ -56,7 +56,7 @@
 \title{Ateliers Créactifs Raspberry Pi}
 \subtitle{Intégration d'une caméra pour transformer son Raspberry PI en photomaton ou en système de videósurveillance.}
 
-\author{Jean Bourgies, Ugo Proietti}
+\author{Jean Bourgies, François Marelli, Ugo Proietti}
 
 \date{17 février 2025}
 
@@ -127,8 +127,8 @@
 
         \column{1\textwidth}
         \begin{itemize}
-            \item \texttt{raspistill -o image.jpg} : prend une photo et l'enregistre sous le nom \texttt{image.jpg}
-            \item \texttt{raspivid -t 5000 -o video.h264} : prend une vidéo de 5000 milisecondes et l'enregistre sous le nom \texttt{video.h264}
+            \item \texttt{libcamera-jpeg -o image.jpg} : prend une photo et l'enregistre sous le nom \texttt{image.jpg}
+            \item \texttt{libcamera-vid -t 5000 -o video.h264} : prend une vidéo de 5000 milisecondes et l'enregistre sous le nom \texttt{video.h264}
         \end{itemize}
 
     \end{columns}
@@ -139,21 +139,21 @@
 
         \column{1\textwidth}
         \begin{itemize}
-            \item \texttt{raspistill}
+            \item \texttt{libcamera-jpeg}
             \begin{itemize}
                 \item \texttt{-t 5000} : minuteur de 5 secondes
                 \item \texttt{-rot 180} : rotation de 180 degrés
-                \item \texttt{-o image.jpg} : nom du fichier de sortie
+                \item \texttt{-o image.jpeg} : nom du fichier de sortie
                 \item \texttt{-awb greyworld} : à utiliser si l'image est rose
             \end{itemize}
-            \item \texttt{raspivid}
+            \item \texttt{libcamera-vid}
             \begin{itemize}
                 \item \texttt{-t 3000} : temps de 3 secondes
                 \item \texttt{-rot 90} : rotation de 90 degrés
                 \item \texttt{-o video.h264} : nom du fichier de sortie
                 \item \texttt{-awb greyworld} : à utiliser si l'image est rose
             \end{itemize}
-            \item \texttt{man raspistill} et \texttt{man raspivid} pour la liste d'options
+            \item \texttt{man libcamera-jpeg} et \texttt{man libcamera-vid} pour la liste d'options
         \end{itemize}
 
     \end{columns}
@@ -223,7 +223,7 @@
         \begin{lstlisting}[language=Bash, caption=carousel.sh]
 #!/bin/bash
 
-images=($(shuf -e *.jpg))
+images=($(shuf -e *.jpeg))
 
 for image in "${images[@]}"; do
     feh --fullscreen --zoom fill "$image" &
