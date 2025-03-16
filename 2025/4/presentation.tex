@@ -8,13 +8,46 @@
 \usepackage{hyperref}
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+
 \usepackage{caption} % Allows the usage of \captionsetup
+\DeclareCaptionFormat{nolabel}{#3} % Removes "Listing:" prefix
+\captionsetup[lstlisting]{format=nolabel}
+
 \usepackage{enumitem}
 \setlist[itemize,1]{label=\textbullet}
 \setlist[itemize,2]{label=--}
 
 \usepackage[T1]{fontenc}
 \usepackage{cascadia-code}
+
+\usepackage{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.9,0.9,0.9}
+
+\usepackage{listings}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=true,
+    showstringspaces=true,
+    showtabs=true,
+    tabsize=4,
+    aboveskip=0pt, % Reduce space above
+    belowskip=0pt  % Reduce space below
+}
+\lstset{style=mystyle}
 
 %----------------------------------------------------------------------------------------
 %    TITLE PAGE
@@ -41,6 +74,125 @@
 \begin{frame}{Table des matières}
     % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
     \tableofcontents
+\end{frame}
+
+
+%------------------------------------------------
+\section{Premier programme en Python}
+%------------------------------------------------
+
+\begin{frame}{Python3}
+    \begin{columns}[c] % 'c' ensures vertical centering for both columns
+
+        \column{1\textwidth}
+        \begin{itemize}
+            \item Language de programmation.
+            \item Très utilisé pour sa facilité d'apprentissage et sa simplicité.
+        \end{itemize}
+
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Commandes de base}
+    \begin{columns}[c] % 'c' ensures vertical centering for both columns
+
+        \column{1\textwidth}
+        \begin{itemize}
+            \item \texttt{python3} : interpréteur Python.
+            \item \texttt{pip3} : gestionnaire de paquets Python.
+            \item \texttt{python3 -m venv venv} : environnement virtuel pour le développement.
+        \end{itemize}
+
+    \end{columns}
+\end{frame}
+
+
+%------------------------------------------------
+\section{Explication des ports GPIO}
+%------------------------------------------------
+
+\begin{frame}{General Purpose Input/Output}
+    \begin{columns}[c] % 'c' ensures vertical centering for both columns
+
+        \column{1\textwidth}
+        Broches situées sur le Raspberry Pi qui permettent de communiquer avec d'autres composants électroniques comme des capteurs, des LED ou des moteurs.\\
+        \vspace{5mm}
+        Les ports GPIO permettent de :
+        \begin{itemize}
+            \item Envoyer un signal électrique pour allumer une LED ou activer un moteur
+            \item Recevoir un signal d'un bouton-poussoir ou d'un capteur (comme le DHT22 pour la température)
+            \item Communiquer avec d'autres composants via des protocoles comme I2C ou SPI
+        \end{itemize}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Carte des ports GPIO}
+    \begin{columns}[c] % 'c' ensures vertical centering for both columns
+
+        \column{1\textwidth}
+        Plusieurs façon de voir les ports GPIO :
+        \vspace{5mm}
+        \begin{itemize}
+            \item Sur le site \url{https://pinout.xyz/}
+            \item En utilisant la commande \texttt{pinout}
+        \end{itemize}
+    \end{columns}
+\end{frame}
+
+
+%------------------------------------------------
+\section{Présentation du capteur DHT22}
+%------------------------------------------------
+%------------------------------------------------
+\section{Acquisition de données}
+%------------------------------------------------
+
+\begin{frame}{Installation des dépendances}
+    \begin{columns}[c] % 'c' ensures vertical centering for both columns
+
+        \column{1\textwidth}
+        \begin{itemize}
+            \item \texttt{python3 -m venv venv}
+            \item \texttt{source venv/bin/activate}
+            \item \texttt{sudo apt update}
+            \item \texttt{sudo apt install libgpiod2}
+            \item \texttt{pip3 install -{}-upgrade pip setuptools wheel}
+            \item \texttt{pip3 install adafruit-circuitpython-dht}
+        \end{itemize}
+
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Écriture du programme}
+    \begin{columns}[c] % 'c' ensures vertical centering for both columns
+
+        \column{0.65\textwidth} % Left column
+        \begin{lstlisting}[language=Python, caption=DHT22.py]
+import time
+import adafruit_dht
+import board
+
+dht_device = adafruit_dht.DHT22(board.D4)
+
+while True:
+    try:
+        temperature = dht_device.temperature
+        humidity = dht_device.humidity
+        print(f"Temp: {temperature:.1f}C / Humi: {humidity:.1f}%")
+    except RuntimeError as err:
+        print(err.args[0])
+
+    time.sleep(2.0)
+        \end{lstlisting}
+
+        \column{0.35\textwidth}
+        Pour ceux qui ne veulent pas recopier :
+        \url{https://chk.me/dJGDS4S} \\
+        \vspace{5mm}
+        Pour éxecuter le programme :
+        \texttt{python3 DHT22.py}
+    \end{columns}
 \end{frame}
 
 \end{document}

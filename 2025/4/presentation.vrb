@@ -1,0 +1,29 @@
+\frametitle{Écriture du programme}
+    \begin{columns}[c] % 'c' ensures vertical centering for both columns
+
+        \column{0.65\textwidth} % Left column
+        \begin{lstlisting}[language=Python, caption=DHT22.py]
+import time
+import adafruit_dht
+import board
+
+dht_device = adafruit_dht.DHT22(board.D4)
+
+while True:
+    try:
+        temperature = dht_device.temperature
+        humidity = dht_device.humidity
+        print(f"Temp: {temperature:.1f}C / Humi: {humidity:.1f}%")
+    except RuntimeError as err:
+        print(err.args[0])
+
+    time.sleep(2.0)
+        \end{lstlisting}
+
+        \column{0.35\textwidth}
+        Pour ceux qui ne veulent pas recopier :
+        \url{https://chk.me/dJGDS4S} \\
+        \vspace{5mm}
+        Pour éxecuter le programme :
+        \texttt{python3 DHT22.py}
+    \end{columns}
