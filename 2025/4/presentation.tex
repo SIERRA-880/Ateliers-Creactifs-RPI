@@ -106,6 +106,115 @@
     \end{columns}
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{Afficher du texte}
+    \begin{columns}[c] % 'c' ensures vertical centering for both columns
+
+        \column{1\textwidth}
+        \begin{lstlisting}[language=Python]
+# Afficher un message simple a l'ecran
+print("Bonjour et bienvenue dans le monde de Python !")
+        \end{lstlisting}
+
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Utiliser des variables}
+    \begin{columns}[c] % 'c' ensures vertical centering for both columns
+
+        \column{1\textwidth}
+        \begin{lstlisting}[language=Python]
+# Declaration de variables
+nom = "Alice"  # Chaine de caracteres (string)
+age = 25       # Nombre entier (integer)
+taille = 1.68  # Nombre a virgule flottante (float)
+
+# Affichage des variables
+print("Nom :", nom)
+print("Age :", age)
+print("Taille :", taille, "m")
+        \end{lstlisting}
+
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Opérations mathématiques}
+    \begin{columns}[c] % 'c' ensures vertical centering for both columns
+
+        \column{1\textwidth}
+        \begin{lstlisting}[language=Python]
+# Declaration de nombres
+a = 10
+b = 3
+
+# Operations de base
+somme = a + b
+difference = a - b
+produit = a * b
+quotient = a / b  # Division avec decimales
+reste = a % b  # Reste de la division (modulo)
+
+# Affichage des resultats
+print("Somme :", somme)
+print("Difference :", difference)
+print("Produit :", produit)
+print("Quotient :", quotient)
+print("Reste de la division :", reste)
+        \end{lstlisting}
+
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Conditions}
+    \begin{columns}[c] % 'c' ensures vertical centering for both columns
+
+        \column{1\textwidth}
+        \begin{lstlisting}[language=Python]
+# Demander un nombre a l'utilisateur
+nombre = int(input("Entrez un nombre : "))
+
+# Verification du signe du nombre
+if nombre > 0:
+    print("Le nombre est positif.")
+elif nombre < 0:
+    print("Le nombre est negatif.")
+else:
+    print("Le nombre est nul.")
+        \end{lstlisting}
+
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Boucles}
+    \begin{columns}[c] % 'c' ensures vertical centering for both columns
+
+        \column{1\textwidth}
+        \begin{lstlisting}[language=Python]
+# Boucle qui affiche les nombres de 1 a 10
+for i in range(1, 11):
+    print(i)
+        \end{lstlisting}
+        \vspace{5mm}
+        \begin{lstlisting}[language=Python]
+# Definition du mot de passe correct
+mot_de_passe_correct = "python123"
+
+# Demander un mot de passe a l'utilisateur
+mot_de_passe = ""
+
+while mot_de_passe != mot_de_passe_correct:
+    mot_de_passe = input("Entrez le mot de passe : ")
+
+print("Mot de passe correct, acces autorise !")
+        \end{lstlisting}
+
+    \end{columns}
+\end{frame}
+
 
 %------------------------------------------------
 \section{Explication des ports GPIO}
