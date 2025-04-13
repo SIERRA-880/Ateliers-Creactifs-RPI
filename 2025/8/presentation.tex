@@ -21,7 +21,7 @@
 %----------------------------------------------------------------------------------------
 
 \title{Ateliers Créactifs Raspberry Pi}
-\subtitle{Conclusion des projets et idées d'intégration dans vos projets personnels.}
+\subtitle{Programmation 2 : mise en ligne d'un site web et création d'une plateforme de surveillance des capteurs.}
 
 \author{Jean Bourgies, François Marelli, Ugo Proietti}
 
@@ -41,6 +41,77 @@
 \begin{frame}{Table des matières}
     % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
     \tableofcontents
+\end{frame}
+
+%------------------------------------------------
+\section{Rappel des technologies utilisées}
+%------------------------------------------------
+
+\begin{frame}{Ce qu'on connaît}
+    \begin{columns}[c] % 'c' ensures vertical centering for both columns
+
+        \column{1\textwidth}
+        \begin{itemize}
+            \item Raspberry PI
+            \item Linux
+            \item GPIO
+            \item Python
+            \item DHT22
+        \end{itemize}
+
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Ce qu'on ne connaît pas encore}
+    \begin{columns}[c] % 'c' ensures vertical centering for both columns
+
+        \column{1\textwidth}
+        \begin{itemize}
+            \item Flask
+            \item systemd
+        \end{itemize}
+
+    \end{columns}
+\end{frame}
+
+%------------------------------------------------
+\section{Utilisation de l'IA}
+%------------------------------------------------
+
+\begin{frame}{Comment utiliser les IA ?}
+    \begin{columns}[c] % 'c' ensures vertical centering for both columns
+
+        \column{0.5\textwidth}
+        Très bien pour :
+        \begin{itemize}
+            \item Implémentation
+            \item Faire des recherches
+            \item Connecter des concepts
+            \item Essai-erreur
+            \item Vitesse
+        \end{itemize}
+
+        \column{0.5\textwidth}
+        Pas bien pour:
+        \begin{itemize}
+            \item Créativité
+            \item Apprentissage
+        \end{itemize}
+
+    \end{columns}
+\end{frame}
+
+%------------------------------------------------
+\section{Projet}
+%------------------------------------------------
+
+\begin{frame}{Projet}
+    \begin{columns}[c] % 'c' ensures vertical centering for both columns
+
+        \column{1\textwidth}
+            \texttt{Donne moi un code pour un serveur web en Flask qui tournera sur un RPI3B et qui affiche toutes les 1 secondes les données d'un capteur DHT22. Donne moi également le pinout du capteur sur la carte RPI3B. Sur ma page web je dois également un graphique avec la température et l'humidité durant les dernières 4 heures. Il me faut un bouton pour télécharger les données en CSV. Ces données doivent également être accessibles directement depuis le RPI3B en SSH. Les paquets Python doivent être dans un venv. Ajoute un requirements.txt et un service systemd éxécuté au démarrage.}
+
+    \end{columns}
 \end{frame}
 
 \end{document}
